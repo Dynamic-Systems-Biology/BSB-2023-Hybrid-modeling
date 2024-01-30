@@ -68,12 +68,12 @@ for i in 1:train_size
     push!(conditions, BSON.load("$(condition_folder)/train_condition_$(i).bson"))
 end;
 
-for i in 1:test_size
-    push!(conditions, BSON.load("$(condition_folder)/test_condition_$(i).bson"))
-end;
-
 for i in 1:val_size
     push!(conditions, BSON.load("$(condition_folder)/val_condition_$(i).bson"))
+end;
+
+for i in 1:test_size
+    push!(conditions, BSON.load("$(condition_folder)/test_condition_$(i).bson"))
 end;
 
 println("----Conditions loaded----");
