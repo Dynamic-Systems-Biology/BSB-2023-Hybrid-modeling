@@ -1,0 +1,11 @@
+{
+    "modelFile": "hybrid_model_config.jl",
+    "conditionFolder": "conditions_101pts",
+    "valSize": 10,
+    "testSize": 10,
+    "trainSize": 10,
+    "adamIterations": 10,
+    "bfgsIterations": 10,
+    "savePointsAt": 1,
+    "plotScatter": false
+}

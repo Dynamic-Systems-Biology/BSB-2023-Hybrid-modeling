@@ -1,0 +1,25 @@
+{
+    "total_time_ns": 1380962382985,
+    "total_allocated_bytes": 1007448463725,
+    "time_ns": 0,
+    "n_calls": 0,
+    "allocated_bytes": 0,
+    "inner_timers": {
+        "BFGS_TRAINING": {
+            "total_time_ns": 0,
+            "total_allocated_bytes": 0,
+            "time_ns": 120245878365,
+            "n_calls": 1,
+            "allocated_bytes": 7549552782,
+            "inner_timers": {}
+        },
+        "ADAM_TRAINING": {
+            "total_time_ns": 0,
+            "total_allocated_bytes": 0,
+            "time_ns": 1260716504620,
+            "n_calls": 4,
+            "allocated_bytes": 999898910943,
+            "inner_timers": {}
+        }
+    }
+}
