@@ -107,4 +107,4 @@ For more details, take a look at [LICENSE](LICENSE).
 
 ## Acknowledgments
 
-The authors thank Juliane Liepe (Max Planck Institute for Multidisciplinary Sciences, Germany) for her intellectual input in an earlier project in the same research line. This work was supported by CAPES, BECAS Santander and by grants 13/07467-1, 15/22308-2, 19/21619-5, 19/24580-2, and 21/04355-4, São Paulo Research Foundation (FAPESP). The authors also acknowledge the National Laboratory for Scientific Computing (LNCC, Brazil) for providing HPC resources of the SDumont supercomputer \href{http://sdumont.lncc.br}{(sdumont.lncc.br)}.
+The authors thank Juliane Liepe (Max Planck Institute for Multidisciplinary Sciences, Germany) for her intellectual input in an earlier project in the same research line. This work was supported by CAPES, BECAS Santander and by grants 13/07467-1, 15/22308-2, 19/21619-5, 19/24580-2, and 21/04355-4, São Paulo Research Foundation (FAPESP). The authors also acknowledge the National Laboratory for Scientific Computing (LNCC, Brazil) for providing HPC resources of the SDumont supercomputer [(sdumont.lncc.br)](http://sdumont.lncc.br).
