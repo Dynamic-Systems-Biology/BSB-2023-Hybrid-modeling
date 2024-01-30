@@ -61,7 +61,7 @@ julia ./hybrid_model_train.jl --folder-model ./ --config hybrid_model_config.jso
 
 The file `hybrid_model_train.jl` is the main file that runs the experiment, when executing this code, use the --folder-model parameter to specify the directory containing the model files, and the --config parameter to indicate the path to the experiment configuration file. The configuration file includes settings such as the maximum number of ADAM iterations, among other parameters:
 
-```json
+```jsonc
 {
     "modelFile": "hybrid_model_config.jl", // the julia code of the hybrid model
     "conditionFolder": "conditions_101pts", // the folder that contains the data set
