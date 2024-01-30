@@ -241,7 +241,7 @@ function evaluate_loss(p, ensembleProblem, trajectories, step, N)
             p = p
         );
 
-        error = convert(eltype(p), 1e-3) * sum(abs, p) ./length(p);
+        error = convert(eltype(p), 1e-3) * sum(abs2, p) ./length(p);
 
         for i in 1:N
             condition = conditions[step + i];
