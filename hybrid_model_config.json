@@ -4,8 +4,8 @@
     "valSize": 10,
     "testSize": 10,
     "trainSize": 10,
-    "adamIterations": 10,
-    "bfgsIterations": 10,
+    "adamIterations": 2000,
+    "bfgsIterations": 1000,
     "savePointsAt": 1,
     "plotScatter": false
 }
