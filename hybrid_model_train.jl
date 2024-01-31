@@ -126,9 +126,7 @@ for i in 1:size(learningRates)[1]
     global optimizationProblem = Optimization.OptimizationProblem(
         optimizationFunction,
         validationMinimizer
-    )
-
-    global otp_extra_step = 100
+    );
 end;
 
 validationMinimizer = JLSO.load("$(val_param_folder)/val_param.jlso")[:ude_parameters];
@@ -139,8 +137,6 @@ optimizationProblem = Optimization.OptimizationProblem(
 );
 
 JLSO.save("$(results_folder)/adam_parameters.jlso", :ude_parameters => res1.minimizer);
-
-otp_extra_step = 20;
 
 res2 = @timeit timerOutput "BFGS_TRAINING" begin
     @suppress_err begin

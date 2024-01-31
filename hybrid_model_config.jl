@@ -132,14 +132,11 @@ end
 
 # at wich iteration after the validation loss increased 
 # it should be checked and stopped if it did not decreased
-check_val_iter      = 100;
+check_val_iter_index      = 100;
 
 min_val_loss_i      = 1;
 min_val_loss_v      = Inf;
 last_index_callback = 0;
-
-# extra step to run the optimization
-otp_extra_step      = 0;
 
 """
     Callback of the optimizer
@@ -156,25 +153,29 @@ function callback(p, l)
     open("$(results_folder)/testLoss.csv", "a+")  do io writedlm(io, testLoss, ',');  end;
     open("$(results_folder)/trainLoss.csv", "a+") do io writedlm(io, trainLoss, ','); end;
 
-    # check if the validation loss continues to increase after (check_val_iter + otp_extra_step) steps
-    is_to_check_loss_val = (last_index_callback - min_val_loss_i) > check_val_iter + otp_extra_step;
+    # check if the validation loss continues to increase after check_val_iter_index steps
+    is_to_check_loss_val = last_index_callback > check_val_iter_index;
 
     # Saves the best parameter till validation loss increased.
     if (min_val_loss_v > valLoss)
 
         global min_val_loss_i = last_index_callback;
         global min_val_loss_v = valLoss;
-        global otp_extra_step = 0;
-
+        global check_val_iter_index = min_val_loss_i + 100;
+        
         JLSO.save(
             "$(val_param_folder)/val_param.jlso", 
             :ude_parameters => p
         );
     end;
 
-    print("[$(last_index_callback)] MinValLoss[$(min_val_loss_i)]: $(min_val_loss_v) -- Train: $(trainLoss), Validation: $(valLoss), Test: $(testLoss)\r");
+    is_early_stop = is_to_check_loss_val && valLoss > min_val_loss_v;
     
-    return is_to_check_loss_val && min_val_loss_v > trainLoss;
+    if (is_early_stop) global check_val_iter_index = last_index_callback + 101; end
+
+    print("[$(last_index_callback)] CheckValLoss[$(check_val_iter_index)] MinValLoss[$(min_val_loss_i)]: $(min_val_loss_v) -- Train: $(trainLoss), Validation: $(valLoss), Test: $(testLoss)\r");
+
+    return is_early_stop;
 end;
 
 
